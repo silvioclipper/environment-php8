@@ -1,0 +1,12 @@
+version: '3'
+services:
+  app-php-v8:
+    image: php:8.1.1-fpm
+    working_dir: /var/app
+    volumes:
+      - .:/var/app
+    ports:
+      - 80:80
+    command: php -S 0.0.0.0:80
+
+
