@@ -7,6 +7,9 @@ services:
       - .:/var/app
     ports:
       - 80:80
-    command: php -S 0.0.0.0:80
+    command: >
+         bash -c "chmod 777 /var/app/install.sh &&
+         /var/app/install.sh"
+
 
 
