@@ -19,14 +19,7 @@ services:
       - ./mounts/db/mysql:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_DATABASE=php_server_test
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=user      
-      - MYSQL_PASSWORD=userpassword
-      - MYSQL_HOST=localhost      
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: php_server_test
     ports:
-      - 3306:3306
-      
-
-
-
+      - 3307:3307
