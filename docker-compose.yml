@@ -2,11 +2,31 @@ version: '3'
 services:
   app-php-v8:
     image: php:8.1.1-fpm
+    container_name: php
     working_dir: /var/app
     volumes:
       - .:/var/app
+      - ./mounts/conf/php:/../../usr/local/etc/php
     ports:
-      - 80:80
+      - 80:80      
     command: php -S 0.0.0.0:80
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0.30
+    container_name: mysql
+    volumes:
+      - ./mounts/db/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=php_server_test
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=user      
+      - MYSQL_PASSWORD=userpassword
+      - MYSQL_HOST=localhost      
+    ports:
+      - 3306:3306
+      
+
 
 
