@@ -1,11 +1,10 @@
 <?php
 
-namespace App;
+$dinamico = 'teste';
 
-class Animal {
-   public function __construct(string $messageWellcome)
-   {
-        echo $messageWellcome;
-   }
-    
-}
+$$teste = $dinamico;
+
+$dinamico = 'velox';
+
+echo $dinatico;
+
